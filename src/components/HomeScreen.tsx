@@ -60,13 +60,20 @@ function HomeScreen() {
                     </Badge>
                   </td>
                   <td>
-                    <Button onClick={() => setSelectedTodoToUpdate(todo)}>
-                      <MdOutlineModeEditOutline size="4vh" />
+                    <Button
+                      style={{ fontSize: "4vh", padding: "0.5rem" }}
+                      onClick={() => setSelectedTodoToUpdate(todo)}
+                    >
+                      <MdOutlineModeEditOutline size="1rem" />
                     </Button>
                   </td>
                   <td>
-                    <Button color="red" onClick={() => setSelectedTodoToDelete(todo)}>
-                      <TiDeleteOutline size="4vh" />
+                    <Button
+                      style={{ fontSize: "4vh", padding: "0.5rem" }}
+                      color="red"
+                      onClick={() => setSelectedTodoToDelete(todo)}
+                    >
+                      <TiDeleteOutline size="1rem" />
                     </Button>
                   </td>
                 </tr>
