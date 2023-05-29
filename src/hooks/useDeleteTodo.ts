@@ -7,6 +7,7 @@ function useDeleteTodo() {
     mutationFn: async (id: number) => {
       const response = await api.delete(`/todo/${id}`);
       queryClient.refetchQueries(["todo"]);
+      console.log(response);
     },
   });
 }

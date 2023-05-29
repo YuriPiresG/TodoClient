@@ -8,13 +8,13 @@ export interface CreateTodo {
   completed: boolean;
 }
 
-
 export const useCreateTodo = () => {
   const queryClient = useQueryClient();
   return useMutation({
     mutationFn: async (data: CreateTodo) => {
       const response = await api.post("/todo", data);
       queryClient.refetchQueries(["todo"]);
+      console.log(response);
     },
   });
 };

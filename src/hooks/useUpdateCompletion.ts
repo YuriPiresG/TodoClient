@@ -7,6 +7,7 @@ function useUpdateTodo() {
     mutationFn: async (data: any) => {
       const response = await api.put(`/todo/${data.id}`, data);
       queryClient.refetchQueries(["todo"]);
+      console.log(response);
     },
   });
 }
