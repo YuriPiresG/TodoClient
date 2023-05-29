@@ -14,7 +14,7 @@ function CreateTodo() {
   const [title, setTitle] = useState<string>("");
   const [description, setDescription] = useState<string>("");
   const [completed, setCompleted] = useState<boolean>(false);
-  const [id, setId] = useState<number>(0);
+  const [id] = useState<number>(0);
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = event.currentTarget.checked;
     setCompleted(newValue);

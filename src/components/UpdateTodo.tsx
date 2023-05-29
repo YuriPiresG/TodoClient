@@ -1,10 +1,9 @@
 import {
   Button,
   Modal,
-  NumberInput,
   Stack,
   Switch,
-  TextInput,
+  TextInput
 } from "@mantine/core";
 import { useState } from "react";
 import { toast } from "react-toastify";

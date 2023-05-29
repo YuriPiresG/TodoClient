@@ -1,12 +1,12 @@
-import { Badge, Button, Card, Image, Switch, Table, Text } from "@mantine/core";
+import { Badge, Button, Card, Image, Table, Text } from "@mantine/core";
+import { useState } from "react";
 import { MdOutlineModeEditOutline } from "react-icons/md";
 import { TiDeleteOutline } from "react-icons/ti";
 import logo from "../assets/logo.png";
 import { Todo, useGetTodos } from "../hooks/useGetTodos";
 import CreateTodo from "./CreateTodo";
-import { useState } from "react";
-import UpdateTodo from "./UpdateTodo";
 import DeleteTodo from "./DeleteTodo";
+import UpdateTodo from "./UpdateTodo";
 
 function HomeScreen() {
   const { data: todos } = useGetTodos();
