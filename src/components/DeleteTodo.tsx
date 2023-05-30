@@ -1,5 +1,4 @@
 import { Button, Modal, Stack } from "@mantine/core";
-import { useState } from "react";
 import { toast } from "react-toastify";
 import { useDeleteTodo } from "../hooks/useDeleteTodo";
 import { Todo } from "../hooks/useGetTodos";
@@ -11,13 +10,17 @@ interface Props {
 }
 
 function DeleteTodo(props: Props) {
-  const [todoId] = useState<number>(props.todo.id);
+  const todoId = props.todo.id;
   const { mutateAsync, isLoading } = useDeleteTodo();
+
   const handleDelete = async () => {
-    await mutateAsync(todoId);
-    props.close();
-    toast.success("TODO deletado com sucesso!");
-    toast.error("Erro ao deletar TODO!");
+    try {
+      await mutateAsync(todoId);
+      toast.success("Tarefa deletada com sucesso!");
+      props.close();
+    } catch (error) {
+      toast.error("Erro ao deletar Tarefa!");
+    }
   };
 
   return (
@@ -28,13 +31,11 @@ function DeleteTodo(props: Props) {
         title={`Deseja deletar ${props.todo.title}?`}
       >
         <Modal.Body>
-          <form onSubmit={handleDelete}>
-            <Stack spacing="xs">
-              <Button color="red" type="submit" loading={isLoading}>
-              {`Sim desejo deletar ${props.todo.title}?`}
-              </Button>
-            </Stack>
-          </form>
+          <Stack spacing="xs">
+            <Button color="red" onClick={handleDelete} loading={isLoading}>
+              {`Sim, desejo deletar ${props.todo.title}.`}
+            </Button>
+          </Stack>
         </Modal.Body>
       </Modal>
     </>
