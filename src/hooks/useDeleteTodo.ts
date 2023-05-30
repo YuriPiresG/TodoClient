@@ -9,6 +9,7 @@ function useDeleteTodo() {
       await api.delete(`/todo/${id}`);
     },
     onSuccess: (data, id) => {
+      console.log(data);
       queryClient.setQueryData(["todo"], (prevData: Todo[] | undefined) =>
         prevData?.filter((todo) => todo.id !== id)
       );
